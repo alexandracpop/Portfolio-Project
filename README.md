@@ -4,11 +4,11 @@ This repo was created to showcase the results of my final project for the Profes
 
 ## Project Introduction
 
- I chose to look at predicting movies revenue based on a number of input variables. To increase model accuracy, I used two machine learning techniques:
+ Two machine learning methods were chosen to help predict movies revenue based on a number of input variables:
 * Regression Decision Trees
 * Multiple Regression
 
-To further improve accuracy I used GridSearch to tune my hyperparameters.
+To further improve accuracy and reduce errors, I used GridSearch to tune my hyperparameters.
 
 ## Dataset Used
 
