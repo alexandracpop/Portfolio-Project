@@ -4,9 +4,21 @@ This repo was created to showcase the results of my final project for the Profes
 
 ## Project Introduction
 
+I wanted to explore a fun topic for my project, so after exploring a few datasets on Kaggle, I settled on 'The Movies' dataset. My aim was to predict movies revenues. A few of my research questions were:
+
+Which genres tend to have the highest revenue? Are there any genres that consistently perform poorly?
+
+1. What is the relationship between budget and revenue? 
+
+2. Does the language of the movie have an impact on revenue?
+
+3. How do ratings (e.g., IMDb or Rotten Tomatoes scores) impact revenue? 
+
+4. Can a model using genre, ratings, budget, languages, and countries accurately predict movie revenue? Which input variables are most important in predicting revenue?
+
  Two machine learning methods were chosen to help predict movies revenue based on a number of input variables:
 * Regression Decision Trees
-* Multiple Regression
+* Random Forest
 
 To further improve accuracy and reduce errors, I used GridSearch to tune my hyperparameters.
 
@@ -24,16 +36,15 @@ As my outcome variable is numeric (revenue), the first model I chose was the Reg
 * doesn't require feature scaling - this saves time and effort.
 * can easily show the most important features in the model.
 
-The second model that I tried was a Multiple Regression model. This again is a supervised machine learning model. Some of the positives of this model are:
-* it can handle many input variables 
-* it can identify important features - this is because it looks at the importance of each feature on the output variable.
-* it is a widely known and understood method - it's a method that stakeholders trust.
+The second model that I tried was a Random Forest model. This again is a supervised machine learning model. Some of the positives of this model are:
+* high accuracy - compared to other linear regression models, random forest is known be produce high-accuracy models.
+* roboustness - it is less sensitive to outliers and noise in the data compared to other models.
+* can easily show the most important features in the model.
 
 ## Regression Decision Tree Results
 
-A reggression decision tree model was trained to predict the revenue of a movie based on various factors such as budget, runtime, emotion of movie overview, and language of movie. The results showed that the model had a perfect training accuracy, but it was not performing well on unseen data, with a 47% accuracy for the unseen data. To improve the model, hyperparameter tuning was done, which improved the model's accuracy by 13%. However, the error rates suggested that the model was not very accurate in predicting the revenue of the movies.
+The results show that the decision tree regressor model has a training accuracy of 100%, which suggests that it might have overfit the training data. However, the testing accuracy was 67%, indicating that the model is performing fine on unseen data. To improve the model's performance, hyperparameter tuning is done using grid search with cross-validation. The best model from the grid search has a training accuracy of 74% and a testing accuracy of 65%, which suggests that the hyperameter tunning did not have a significant impact on the model. Overall, the model can be used to predict the revenue of a movie based on its budget, runtime, vote average, overview length, binary tagline, original language, and the emotion of the movie overview, but further analysis is needed to determine if the model is suitable for practical use. The error rates suggest that the model is not very accurate in predicting the revenue of the movies. The mean absolute error (MAE) of 7862301.0 suggests that, on average, the model's revenue predictions are off by that amount ($). The mean squared error (MSE) and root mean squared error (RMSE) are also quite large, which further confirms that the model is not very accurate.
 
+## Random Forest Model Results and Recommendation
 
-## Multiple Regression Results
-
-The second model was trained to predict movie revenue using various factors. The model had a training accuracy of 60%, which is a good result. However, the error rates were high, suggesting that important factors were missing from the analysis. Hyperparameter tuning was done to improve the accuracy, which improved the R-squared value to 63%. However, the error rates remained high, suggesting that additional factors may be important or that the model may be overfitting the training data.
+Based on the results, after using hyperparameter tunning, the random forest model has an accuracy of 69% . This accuracy is higher than the accuracy from the Regression Decision Tree model, which was 64%. The Random Forest Model also shows slightly lower errors than the Regression Decision Tree Model. With a MAE of 7789857.1, MSE of 1045625509849571 and RMSE of 32336133, compared to the Regression Decision Tree which had a MAE of 7862301, a MSE of 1158305350430807.0 and RMSE of 34033885.3. However, the error rates are still high, which indicates that important features might be missing from the analysis. Based on the two models, I recommend the random forest model as it gives a higher accuracy and a lower error rate. Emsemble techniques are better than decision trees as they can capture the complexity of the data or where the data is noisy or uncertain.
