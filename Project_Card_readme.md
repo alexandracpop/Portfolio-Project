@@ -1,5 +1,5 @@
 ## Model Description:
-The machine learning models explored in this project are the Regression Decision Tree and Multiple Regression, both of which aim to predict movie revenue based on various input variables. 
+The machine learning models explored in this project are the Regression Decision Tree and Random Forest, both of which aim to predict movie revenue based on various input variables. 
 The input variables used include:
 * budget
 * runtime
@@ -34,11 +34,15 @@ The output of the models is a prediction of movie revenue.
 The Regression Decision Tree and Multiple Regression models are both supervised machine learning models that aim to predict a numeric outcome variable. The Regression Decision Tree model has strong interpretability and handles non-linear relationships well, while the Multiple Regression model can handle many input variables and identify important features.
 
 ## Performance:
-The Regression Decision Tree model had perfect training accuracy but only 47% accuracy for unseen data. After hyperparameter tuning, the model's accuracy improved by 13%. However, the error rates still suggest that the model is not very accurate in predicting movie revenue. The Multiple Regression model had a training accuracy of 60%, which improved to 63% after hyperparameter tuning. However, the error rates remained high, suggesting that important factors may be missing from the analysis or that the model is overfitting the training data.
+The Random Forest gave a similar accuracy score as the Regression Decision Tree model 64%. However, after the hyperparameter tunning, the model outperformed the Regression Decision tree by 5%. However, the error rates still suggest that the model is not very accurate in predicting movie revenue. This suggesting that important factors may be missing from the analysis or that the model is overfitting the training data.
 
 ## Limitations:
-One limitation of the models is that the features used were quite limited. As I mentioned above, I wanted to create more features, and use the extra datasets that come with 'The Movies', however due to ID inconsistencies, and limited information online for ranking, this was the best I could do. I found pros and cons for a few datasets on Kaggle, and found this one to be acceptable for the amount of time I had for the portfolio. As a result of the previous points, the models may not be capturing all of the important features that contribute to movie revenue, which led to high error rates, even after using Grid Search for hyperparameter tunning.
+One limitation of the models is that the features used were quite limited. As I mentioned above, I wanted to create more features, and use the extra datasets that come with 'The Movies', however due to ID inconsistencies, and limited information online for ranking, this was the best I could do. 
 
+I found pros and cons for a few datasets on Kaggle, and found this one to be acceptable for the amount of time I had for the portfolio. As a result of the previous points, the models may not be capturing all of the important features that contribute to movie revenue, which led to high error rates, even after using Grid Search for hyperparameter tunning.
+
+Even though hyperparameter tunning has had a positive impact on the models accuracy, it has also meant that I had to sacrifice including all 45,000 rows of data in the model. This is because performing hyperparameter tunning is very computational expensive. Instead I found that taking a 10% sample was a fair balance of time and model accuracy.
 
 ## Trade-offs:
-One trade-off of the models is that they may not be accurate enough to make reliable predictions about movie revenue. This could be a limitation in situations where accurate revenue predictions are necessary, such as in the film industry. Additionally, the models may require additional feature engineering or more sophisticated modeling techniques to capture all of the important factors that contribute to movie revenue.
+One trade-off of the models is that they may not be accurate enough to make reliable predictions about movie revenue. This could be a limitation in situations where accurate revenue predictions are necessary, such as in the film industry. Additionally, the models may require additional feature engineering or more sophisticated modeling techniques to capture all of the important factors that contribute to movie revenue. The budget and revenue variables indicated a fairly strong correlation, which could lead to collinearity issues.
+
